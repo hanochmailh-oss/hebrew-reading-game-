@@ -1,0 +1,322 @@
+:root {
+  color: #27304f;
+  background: #fff8e7;
+  font-family: 'Rubik', 'Assistant', 'Segoe UI', Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+.game-shell {
+  align-items: center;
+  background:
+    radial-gradient(circle at top right, rgba(255, 207, 92, 0.55), transparent 30rem),
+    radial-gradient(circle at bottom left, rgba(126, 217, 255, 0.45), transparent 28rem),
+    linear-gradient(135deg, #fff6d8 0%, #ffe8f3 48%, #dff7ff 100%);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 2rem;
+  position: relative;
+}
+
+.game-shell::before,
+.game-shell::after {
+  content: '';
+  background-image: radial-gradient(#ffffff 32%, transparent 34%);
+  background-size: 42px 42px;
+  height: 220px;
+  opacity: 0.45;
+  position: absolute;
+  width: 220px;
+}
+
+.game-shell::before {
+  right: 2rem;
+  top: 2rem;
+}
+
+.game-shell::after {
+  bottom: 1.5rem;
+  left: 1.5rem;
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.86);
+  border: 6px solid #ffffff;
+  border-radius: 36px;
+  box-shadow: 0 24px 70px rgba(66, 78, 126, 0.22);
+  max-width: 1050px;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  position: relative;
+  width: min(100%, 1050px);
+  z-index: 1;
+}
+
+.top-bar,
+.progress-label,
+.play-area,
+.actions,
+.finish-card {
+  align-items: center;
+  display: flex;
+}
+
+.top-bar {
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow {
+  color: #ff6b6b;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  margin: 0 0 0.2rem;
+}
+
+h1 {
+  color: #27304f;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1;
+  margin: 0;
+}
+
+.score-card {
+  align-items: center;
+  background: linear-gradient(160deg, #6c63ff, #8b5cf6);
+  border-radius: 26px;
+  box-shadow: 0 14px 28px rgba(108, 99, 255, 0.28);
+  color: #ffffff;
+  display: grid;
+  min-width: 112px;
+  padding: 0.9rem 1.3rem;
+  place-items: center;
+}
+
+.score-card span {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.score-card strong {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.progress-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.progress-label {
+  color: #5a6386;
+  font-weight: 800;
+  justify-content: space-between;
+  margin-bottom: 0.45rem;
+}
+
+.progress-track {
+  background: #edf1ff;
+  border-radius: 999px;
+  height: 16px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #00c2a8, #8be05c, #ffd166);
+  border-radius: inherit;
+  height: 100%;
+  transition: width 250ms ease;
+}
+
+.play-area {
+  align-items: stretch;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+.image-card,
+.question-card {
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: inset 0 0 0 3px rgba(39, 48, 79, 0.06);
+  flex: 1;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.image-card {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.image-card img {
+  display: block;
+  max-height: 360px;
+  max-width: 100%;
+  width: min(100%, 360px);
+}
+
+.question-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.instruction {
+  color: #445072;
+  font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.word-options {
+  display: grid;
+  gap: 1rem;
+}
+
+.word-button {
+  background: linear-gradient(180deg, #ffffff, #fff5fb);
+  border: 4px solid #ffd1e6;
+  border-radius: 24px;
+  box-shadow: 0 10px 0 #f3a8cc;
+  color: #27304f;
+  cursor: pointer;
+  font-size: clamp(1.8rem, 5vw, 3.3rem);
+  font-weight: 900;
+  min-height: 86px;
+  padding: 0.4rem 1rem 0.8rem;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.word-button:hover:not(:disabled),
+.word-button:focus-visible:not(:disabled) {
+  border-color: #ff8cc6;
+  box-shadow: 0 7px 0 #f3a8cc;
+  outline: none;
+  transform: translateY(3px) scale(1.01);
+}
+
+.word-button:disabled {
+  cursor: default;
+}
+
+.word-button.correct {
+  background: linear-gradient(180deg, #edfff8, #d8ffe9);
+  border-color: #39d98a;
+  box-shadow: 0 10px 0 #0fad69;
+}
+
+.word-button.wrong {
+  background: linear-gradient(180deg, #fff5f5, #ffe1e1);
+  border-color: #ff6b6b;
+  box-shadow: 0 10px 0 #db4b4b;
+}
+
+.feedback {
+  align-items: center;
+  background: #fff7c7;
+  border: 3px dashed #f4b942;
+  border-radius: 24px;
+  color: #6b4a00;
+  display: flex;
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  font-weight: 900;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  min-height: 72px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.feedback-icon {
+  font-size: 2rem;
+}
+
+.actions {
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.primary-action {
+  background: linear-gradient(180deg, #6ee7ff, #35a7ff);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 10px 0 #1474b8;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.35rem;
+  font-weight: 900;
+  min-width: 180px;
+  padding: 0.9rem 1.6rem 1.15rem;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+.primary-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.primary-action:hover:not(:disabled),
+.primary-action:focus-visible:not(:disabled) {
+  box-shadow: 0 7px 0 #1474b8;
+  outline: none;
+  transform: translateY(3px);
+}
+
+.finish-card {
+  background: #f0fff7;
+  border: 3px solid #86efac;
+  border-radius: 26px;
+  color: #166534;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.1rem;
+  text-align: center;
+}
+
+.finish-card strong {
+  font-size: 1.7rem;
+}
+
+.finish-card span {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .game-shell {
+    padding: 1rem;
+  }
+
+  .top-bar,
+  .play-area {
+    flex-direction: column;
+  }
+
+  .score-card {
+    width: 100%;
+  }
+
+  .image-card img {
+    max-height: 260px;
+  }
+}

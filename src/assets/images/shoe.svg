@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="נעל">
+  <rect width="320" height="320" rx="48" fill="#bde0fe"/>
+  <circle cx="80" cy="78" r="32" fill="rgba(255,255,255,0.35)"/>
+  <circle cx="252" cy="236" r="42" fill="rgba(255,255,255,0.22)"/>
+  <text x="160" y="178" text-anchor="middle" dominant-baseline="middle" font-size="128">👟</text>
+  <text x="160" y="274" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#253047">נעל</text>
+</svg>
